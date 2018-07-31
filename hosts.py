@@ -220,6 +220,9 @@ def list_all_hosts():
     # Load all configuration files
     inventory_files = find_inventory_files()
     LOGGER.debug("Inventory files found: " + str(inventory_files))
+    # If no inventory files found, return empty inventory
+    if not len(inventory_files):
+        return {"_meta": {"hostvars": {}}, "all": {"children": ["ungrouped"]}}
     for inventory_file in inventory_files:
         with open(inventory_file, 'r') as fd:
             LOGGER.debug("Loading file: " + inventory_file)
