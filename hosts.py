@@ -272,11 +272,17 @@ def parse_arguments():
     ''' % (str(INVENTORY_FILE_REGEX_PATTERN),
            INVENTORY_FILE_HEADER_SIZE,
            INVENTORY_FILE_HEADER.replace('\n', '\n\t'))
-    parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter,
-                                     description="YAML Ansible inventory script loader",
-                                     epilog=textwrap.dedent(epilog))
-    parser.add_argument('-l', '--list', action='store_true', help="display all loaded inventory")
-    parser.add_argument('-v', '--verbose', action='store_true', help="enable verbose mode")
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        description="YAML Ansible inventory script loader",
+        epilog=textwrap.dedent(epilog)
+    )
+    parser.add_argument('-l', '--list',
+                        action='store_true',
+                        help="display all loaded inventory")
+    parser.add_argument('-v', '--verbose',
+                        action='store_true',
+                        help="enable verbose mode")
     return parser.parse_args()
 
 
