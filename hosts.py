@@ -14,6 +14,8 @@ For further details about Ansible dynamic inventory, see
 http://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html
 """
 
+INVENTORY_SCRIPT_NAME = "SimpleAnsibleInventory"
+INVENTORY_SCRIPT_VERSION = 1.0
 LOGGER = None
 INVENTORY_FILE_REGEX_PATTERN = ".*\.y[a]?ml"
 INVENTORY_FILE_HEADER_SIZE = 28
@@ -283,6 +285,9 @@ def parse_arguments():
     parser.add_argument('-v', '--verbose',
                         action='store_true',
                         help="enable verbose mode")
+    parser.add_argument('-V', '--version',
+                        action='store_true',
+                        help="display inventory script version and exit")
     return parser.parse_args()
 
 
@@ -293,6 +298,9 @@ if __name__ == "__main__":
         LOGGER.setLevel(logging.DEBUG)
         for hdlr in LOGGER.handlers:
             hdlr.setLevel(logging.DEBUG)
-    if parsed_arguments.list:
+    if parsed_arguments.version:
+        LOGGER.debug("version flag found")
+        print(INVENTORY_SCRIPT_NAME + " v" +  str(INVENTORY_SCRIPT_VERSION))
+    elif parsed_arguments.list:
         LOGGER.debug("List flag found")
         print(json.dumps(list_all_hosts()))
