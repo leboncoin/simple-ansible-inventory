@@ -279,9 +279,12 @@ def parse_arguments():
         description="YAML Ansible inventory script loader",
         epilog=textwrap.dedent(epilog)
     )
-    parser.add_argument('-l', '--list',
+    parser.add_argument('--list',
                         action='store_true',
                         help="display all loaded inventory")
+    parser.add_argument('--host',
+                        nargs=1,
+                        help="display vars for specified host")
     parser.add_argument('-v', '--verbose',
                         action='store_true',
                         help="enable verbose mode")
@@ -302,5 +305,8 @@ if __name__ == "__main__":
         LOGGER.debug("version flag found")
         print(INVENTORY_SCRIPT_NAME + " v" +  str(INVENTORY_SCRIPT_VERSION))
     elif parsed_arguments.list:
-        LOGGER.debug("List flag found")
+        LOGGER.debug("list flag found")
         print(json.dumps(list_all_hosts()))
+    elif parsed_arguments.host:
+        LOGGER.debug("host flag found")
+        print(json.dumps(dict()))
