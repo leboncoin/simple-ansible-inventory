@@ -35,12 +35,7 @@ def build_meta_header(host, meta_header):
     # If found host doesn't exists in dict, we create it
     if host['host'] not in meta_header['hostvars']:
         meta_header['hostvars'][host['host']] = dict()
-    # Browsing and adding all vars found for host
-    if 'hostvars' in host:
-        for hostvar in host['hostvars']:
-            meta_header['hostvars'][host['host']][hostvar] = \
-                host['hostvars'][hostvar]
-    # Return new meta_header version containing parsed host
+    # Return new meta_header version containing new host
     return meta_header
 
 

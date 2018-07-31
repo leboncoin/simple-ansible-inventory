@@ -1,0 +1,23 @@
+---
+#### YAML inventory file
+
+# the two first lines above are needed for the script
+# to identify the file as an inventory file
+
+## Structure
+# hosts:
+#   - host: <HOSTNAME>
+#     # if needed
+#     groups:
+#       - group1
+#       - group2
+
+##########################
+###  Hosts definition  ###
+##########################
+hosts:
+  - host: stormtrooper-1[0-2,4-5,7].example.com
+    groups: [group_2, datacenter_2]
+
+  - host: darth-vader-01.example.com
+    groups: [group_2, datacenter_2]
