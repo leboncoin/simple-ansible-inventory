@@ -20,4 +20,6 @@ hosts:
     groups: [group_2, datacenter_2]
 
   - host: darth-vader-01.example.com
+    hostvars:
+      lightsaber: red
     groups: [group_2, datacenter_2]

@@ -10,6 +10,8 @@ import copy
 import textwrap
 
 """
+
+
 For further details about Ansible dynamic inventory, see
 http://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html
 """
@@ -37,6 +39,11 @@ def build_meta_header(host, meta_header):
     # If found host doesn't exists in dict, we create it
     if host['host'] not in meta_header['hostvars']:
         meta_header['hostvars'][host['host']] = dict()
+    # Browsing and adding all vars found for host
+    if 'hostvars' in host:
+        for hostvar in host['hostvars']:
+            meta_header['hostvars'][host['host']][hostvar] = \
+                host['hostvars'][hostvar]
     # Return new meta_header version containing new host
     return meta_header
 
@@ -96,9 +103,10 @@ def all_string_from_pattern(input_string, matching_part):
 
     :param input_string: input string containing pattern
     :type input_string: str
+    :param matching_part: pattern extracted from hostname
+    :type matching_part: str
     :return: str
     """
-    possibilities = list()
     # Transform matched pattern to a list of ranges
     regex_found = matching_part.group(0).replace("[", "").replace("]", "").split(',')
     possibilities = list()

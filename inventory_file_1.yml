@@ -8,6 +8,9 @@
 # hosts:
 #   - host: <HOSTNAME>
 #     # if needed
+#     hostvars:
+#      key: value
+#     # if needed
 #     groups:
 #       - group1
 #       - group2
@@ -19,5 +22,10 @@ hosts:
   - host: luke-01.example.com
     groups: [group_1, datacenter_1]
 
-  - host: obi-wan-0[2-4,7].example.com
+  - host: obi-wan-02.example.com
+    hostvars:
+      lightsaber: blue
     groups: [group_1, datacenter_1]
+
+  - host: xwing-pilot-0[3-5,8].example.com
+    groups: [group_1]
