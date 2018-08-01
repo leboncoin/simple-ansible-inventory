@@ -5,7 +5,13 @@ Each host will only have to be written one time and you'll not have to define ea
 
 ## How to use
 
+### Alone
+
 `./simple-ansible-inventory.py --list`
+
+### With ansible
+
+`ansible-inventory -i simple-ansible-inventory.py --list`
 
 To work properly, `simple-ansible-inventory.py` needs inventory file(s) to read.
 There's two possibilities :
@@ -75,7 +81,7 @@ If you want to create the variable `lightsaber: blue` for the host `obi-wan-02.e
 ### In the `host_vars` folder (following Ansible best practices)
 
 Following Ansible best practices, host vars have to be defined in the `host_vars` folder.
-If you want to create the variable `force_side: Sith` for the host `darth-vader-01.example.com`, you have to create the file [`host_vars/darth-vader-01.example.com1.yml`](group_vars/darth-vader-01.example.com.yml) with the following content:
+If you want to create the variable `force_side: Sith` for the host `darth-vader-01.example.com`, you have to create the file [`host_vars/darth-vader-01.example.com.yml`](host_vars/darth-vader-01.example.com.yml) with the following content:
 
 ```yaml
 ---
