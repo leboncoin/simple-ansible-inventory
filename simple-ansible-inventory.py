@@ -10,9 +10,13 @@ import copy
 import textwrap
 
 """
+Project repo
+https://github.com/leboncoin/simple-ansible-inventory
 
+For further details about Ansible best practices including directory layout, see
+https://docs.ansible.com/ansible/2.5/user_guide/playbooks_best_practices.html
 
-For further details about Ansible dynamic inventory, see
+For further details about developing Ansible inventory, see
 http://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html
 """
 
