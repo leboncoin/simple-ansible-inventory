@@ -3,6 +3,17 @@
 The idea is to keep an Ansible inventory simple, clean and easily readable.
 Each host will only have to be written one time and you'll not have to define each group before using it.
 
+## Prerequisites
+
+Simple Ansible Inventory works with python2 and python3.
+Only the package [`pyyaml`](https://pypi.org/project/PyYAML/) is needed. You can install it using one of the following commands
+
+`pip install -r requirements.txt`
+
+or
+
+`pip install pyyaml`
+
 ## How to use
 
 ### Alone
