@@ -238,7 +238,7 @@ def list_all_hosts():
     for inventory_file in inventory_files:
         with open(inventory_file, 'r') as fd:
             LOGGER.debug("Loading file: " + inventory_file)
-            raw_confs_list.append(yaml.load(fd))
+            raw_confs_list.append(yaml.safe_load(fd))
     # Copy first conf loaded to another object
     raw_conf = copy.deepcopy(raw_confs_list[0])
     # Delete first conf loaded
